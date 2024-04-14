@@ -1,0 +1,25 @@
+{
+    "general_files": ["README.md"],
+    "projects": [
+        {
+            "project_type": "python",
+            "file_types": ["py", "txt"],
+            "file_names": ["requirements.txt", "pyproject.toml", "setup.py"]
+        },
+        {
+            "project_type": "javascript",
+            "file_types": ["js", "json"],
+            "file_names": ["package.json", ".eslintrc.json"]
+        },
+        {
+            "project_type": "typescript",
+            "file_types": ["ts", "json"],
+            "file_names": ["package.json", "tsconfig.json"]
+        },
+        {
+            "project_type": "rust",
+            "file_types": ["rs", "toml"],
+            "file_names": ["Cargo.toml"]
+        }
+    ]
+}
