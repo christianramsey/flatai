@@ -69,25 +69,24 @@ fn main() -> io::Result<()> {
         "🎉 Files have been flattened into {}! 🎉",
         output_path.display()
     );
-
-    let release_executable_path = env::current_exe()?
-        .parent()
-        .unwrap()
-        .parent()
-        .unwrap()
-        .join("release");
-
-    if !release_executable_path.exists() {
-        println!("Executable not found at {:?}", release_executable_path);
-        println!("Please run 'cargo build --release' to build the executable.");
-        return Ok(());
+    if env::var("CARGO_PKG_NAME").is_ok() {
+        let release_executable_path = env::current_exe()?
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("release");
+        if !release_executable_path.exists() {
+            println!("Executable not found at {:?}", release_executable_path);
+            println!("Please run 'cargo build --release' to build the executable.");
+            return Ok(());
+        }
+        let zshrc_command = format!(
+            "echo 'export PATH=\"{}:$PATH\"' >> ~/.zshrc",
+            release_executable_path.display()
+        );
+        println!("Add the following command to your ~/.zshrc file:");
+        println!("{}", zshrc_command);
     }
-    let zshrc_command = format!(
-        "echo 'export PATH=\"{}:$PATH\"' >> ~/.zshrc",
-        release_executable_path.display()
-    );
-    println!("Add the following command to your ~/.zshrc file:");
-    println!("{}", zshrc_command);
-
     Ok(())
 }
