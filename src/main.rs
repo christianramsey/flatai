@@ -9,6 +9,7 @@ use std::env;
 use std::ffi::OsStr;
 use std::fs::{self, File};
 use std::io::{self, BufRead, BufReader, Write};
+use std::path::Path;
 use std::path::PathBuf;
 use walkdir::WalkDir;
 
@@ -56,11 +57,24 @@ fn get_entries(start_dir: &str) -> Vec<walkdir::DirEntry> {
         .collect::<Vec<_>>()
 }
 
+fn read_file(path: &Path) -> io::Result<Vec<String>> {
+    let metadata = fs::metadata(path)?;
+    if metadata.len() < 1_000_000 {
+        let content = fs::read_to_string(path)?;
+        Ok(content.lines().map(String::from).collect())
+    } else {
+        let file = File::open(path)?;
+        let reader = BufReader::new(file);
+        Ok(reader.lines().filter_map(Result::ok).collect())
+    }
+}
+
 fn get_lines(
     entries: &[walkdir::DirEntry],
     project_type: Option<&str>,
     config: &Config,
 ) -> Result<Vec<String>, std::io::Error> {
+    // ... (rest of the function remains the same)
     let (file_types, file_names) = match project_type {
         Some(project_type) => {
             let project_config = config
@@ -117,19 +131,21 @@ fn get_lines(
                 && (file_types.contains(path.extension().and_then(OsStr::to_str).unwrap_or(""))
                     || file_names.contains(path.file_name().and_then(OsStr::to_str).unwrap_or("")))
             {
-                let file = File::open(path).ok()?;
-                let reader = BufReader::new(file);
+                let file_lines = match read_file(path) {
+                    Ok(lines) => lines,
+                    Err(_) => return None,
+                };
                 let metadata = fs::metadata(path).ok()?;
                 let modified_time = metadata.modified().ok()?;
                 let datetime: DateTime<Utc> = modified_time.into();
-                let mut file_lines = vec![format!(
+                let mut result = vec![format!(
                     "<file name=\"{}\" last_modified=\"{}\">",
                     path.display(),
                     datetime.to_rfc3339()
                 )];
-                file_lines.extend(reader.lines().filter_map(Result::ok));
-                file_lines.push("</file>".to_string());
-                Some(Ok(file_lines))
+                result.extend(file_lines);
+                result.push("</file>".to_string());
+                Some(Ok(result))
             } else {
                 None
             }
@@ -137,6 +153,7 @@ fn get_lines(
         .collect::<Result<Vec<_>, _>>()
         .map(|lines| lines.concat())
 }
+
 fn write_lines(output_file: &mut File, lines: &[String]) -> io::Result<()> {
     for line in lines {
         writeln!(output_file, "{}", line)?;

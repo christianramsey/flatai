@@ -14,8 +14,8 @@ serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 walkdir = "2.5.0"
 </file>
-<file name="./target/.rustc_info.json" last_modified="2024-04-14T17:49:28.185981925+00:00">
-{"rustc_fingerprint":15591129393572369459,"outputs":{"15729799797837862367":{"success":true,"status":"","code":0,"stdout":"___\nlib___.rlib\nlib___.dylib\nlib___.dylib\nlib___.a\nlib___.dylib\n/Users/fanlizheng/.rustup/toolchains/stable-aarch64-apple-darwin\noff\npacked\nunpacked\n___\ndebug_assertions\npanic=\"unwind\"\nproc_macro\ntarget_arch=\"aarch64\"\ntarget_endian=\"little\"\ntarget_env=\"\"\ntarget_family=\"unix\"\ntarget_feature=\"aes\"\ntarget_feature=\"crc\"\ntarget_feature=\"dit\"\ntarget_feature=\"dotprod\"\ntarget_feature=\"dpb\"\ntarget_feature=\"dpb2\"\ntarget_feature=\"fcma\"\ntarget_feature=\"fhm\"\ntarget_feature=\"flagm\"\ntarget_feature=\"fp16\"\ntarget_feature=\"frintts\"\ntarget_feature=\"jsconv\"\ntarget_feature=\"lor\"\ntarget_feature=\"lse\"\ntarget_feature=\"neon\"\ntarget_feature=\"paca\"\ntarget_feature=\"pacg\"\ntarget_feature=\"pan\"\ntarget_feature=\"pmuv3\"\ntarget_feature=\"ras\"\ntarget_feature=\"rcpc\"\ntarget_feature=\"rcpc2\"\ntarget_feature=\"rdm\"\ntarget_feature=\"sb\"\ntarget_feature=\"sha2\"\ntarget_feature=\"sha3\"\ntarget_feature=\"ssbs\"\ntarget_feature=\"vh\"\ntarget_has_atomic=\"128\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"macos\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"apple\"\nunix\n","stderr":""},"4614504638168534921":{"success":true,"status":"","code":0,"stdout":"rustc 1.77.1 (7cf61ebde 2024-03-27)\nbinary: rustc\ncommit-hash: 7cf61ebde7b22796c69757901dd346d0fe70bd97\ncommit-date: 2024-03-27\nhost: aarch64-apple-darwin\nrelease: 1.77.1\nLLVM version: 17.0.6\n","stderr":""}},"successes":{}}
+<file name="./target/.rustc_info.json" last_modified="2024-04-14T17:55:56.839101608+00:00">
+{"rustc_fingerprint":15591129393572369459,"outputs":{"4614504638168534921":{"success":true,"status":"","code":0,"stdout":"rustc 1.77.1 (7cf61ebde 2024-03-27)\nbinary: rustc\ncommit-hash: 7cf61ebde7b22796c69757901dd346d0fe70bd97\ncommit-date: 2024-03-27\nhost: aarch64-apple-darwin\nrelease: 1.77.1\nLLVM version: 17.0.6\n","stderr":""},"15729799797837862367":{"success":true,"status":"","code":0,"stdout":"___\nlib___.rlib\nlib___.dylib\nlib___.dylib\nlib___.a\nlib___.dylib\n/Users/fanlizheng/.rustup/toolchains/stable-aarch64-apple-darwin\noff\npacked\nunpacked\n___\ndebug_assertions\npanic=\"unwind\"\nproc_macro\ntarget_arch=\"aarch64\"\ntarget_endian=\"little\"\ntarget_env=\"\"\ntarget_family=\"unix\"\ntarget_feature=\"aes\"\ntarget_feature=\"crc\"\ntarget_feature=\"dit\"\ntarget_feature=\"dotprod\"\ntarget_feature=\"dpb\"\ntarget_feature=\"dpb2\"\ntarget_feature=\"fcma\"\ntarget_feature=\"fhm\"\ntarget_feature=\"flagm\"\ntarget_feature=\"fp16\"\ntarget_feature=\"frintts\"\ntarget_feature=\"jsconv\"\ntarget_feature=\"lor\"\ntarget_feature=\"lse\"\ntarget_feature=\"neon\"\ntarget_feature=\"paca\"\ntarget_feature=\"pacg\"\ntarget_feature=\"pan\"\ntarget_feature=\"pmuv3\"\ntarget_feature=\"ras\"\ntarget_feature=\"rcpc\"\ntarget_feature=\"rcpc2\"\ntarget_feature=\"rdm\"\ntarget_feature=\"sb\"\ntarget_feature=\"sha2\"\ntarget_feature=\"sha3\"\ntarget_feature=\"ssbs\"\ntarget_feature=\"vh\"\ntarget_has_atomic=\"128\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"macos\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"apple\"\nunix\n","stderr":""}},"successes":{}}
 </file>
 <file name="./target/release/.fingerprint/crossbeam-deque-634207117daa7e29/lib-crossbeam-deque.json" last_modified="2024-04-14T15:22:29.653784629+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"std\"]","declared_features":"","target":14803919382282729225,"profile":18277820415669657429,"path":3784308207981853240,"deps":[[347056493892918784,"crossbeam_utils",false,7762647053278926244],[17638357056475407756,"crossbeam_epoch",false,3675872100478908380]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/crossbeam-deque-634207117daa7e29/dep-lib-crossbeam-deque"}}],"rustflags":[],"metadata":14304628380895324452,"config":2202906307356721367,"compile_kind":0}
@@ -203,7 +203,7 @@ walkdir = "2.5.0"
 <file name="./target/debug/.fingerprint/flatten_files-49f50f06abc8b5cb/bin-flatten_files.json" last_modified="2024-04-14T14:16:35.391495466+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":1745525715914712604,"profile":14400670141151969058,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatten_files-49f50f06abc8b5cb/dep-bin-flatten_files"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
-<file name="./target/debug/.fingerprint/flatai-caca8121cd307eb0/bin-flatai.json" last_modified="2024-04-14T17:49:19.106023842+00:00">
+<file name="./target/debug/.fingerprint/flatai-caca8121cd307eb0/bin-flatai.json" last_modified="2024-04-14T17:55:51.190715849+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14400670141151969058,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-caca8121cd307eb0/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/either-e745f10f0c3f2ca5/lib-either.json" last_modified="2024-04-14T14:44:36.090125788+00:00">
@@ -308,7 +308,7 @@ walkdir = "2.5.0"
 <file name="./target/debug/.fingerprint/walkdir-7a69ce2c413dcd32/lib-walkdir.json" last_modified="2024-04-14T14:16:35.356408238+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":5370344535018329911,"profile":3797293754785534760,"path":17911329311730463596,"deps":[[5929650549794239381,"same_file",false,10155298958089784819]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/walkdir-7a69ce2c413dcd32/dep-lib-walkdir"}}],"rustflags":[],"metadata":4122289770401600519,"config":2202906307356721367,"compile_kind":0}
 </file>
-<file name="./target/debug/.fingerprint/flatai-1cc101a5acf7a30b/bin-flatai.json" last_modified="2024-04-14T17:49:28.185338751+00:00">
+<file name="./target/debug/.fingerprint/flatai-1cc101a5acf7a30b/bin-flatai.json" last_modified="2024-04-14T17:55:56.838311058+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14453530908159220714,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16372805580369832963],[8100971815023208630,"clipboard",false,11350859997792590335],[15202177393746453064,"serde",false,5668562672545518792],[16395531893067545336,"chrono",false,14789683991867358533],[16421817155455767742,"serde_json",false,17671036727331824096],[17775862536196513609,"rayon",false,16794621761518067054]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-1cc101a5acf7a30b/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/flatai-e13e50f212c13dc1/test-bin-flatai.json" last_modified="2024-04-14T16:59:57.960102903+00:00">
@@ -389,7 +389,7 @@ walkdir = "2.5.0"
 <file name="./target/debug/.fingerprint/libc-59570ab9b9b59c5c/run-build-script-build-script-build.json" last_modified="2024-04-14T14:38:03.515887390+00:00">
 {"rustc":10406382783369853442,"features":"","declared_features":"","target":0,"profile":0,"path":0,"deps":[[11943424025318460506,"build_script_build",false,2570421118080046857]],"local":[{"RerunIfChanged":{"output":"debug/build/libc-59570ab9b9b59c5c/output","paths":["build.rs"]}}],"rustflags":[],"metadata":0,"config":0,"compile_kind":0}
 </file>
-<file name="./target/debug/.fingerprint/flatai-6d8c3eff2d45723a/test-bin-flatai.json" last_modified="2024-04-14T17:49:19.106013591+00:00">
+<file name="./target/debug/.fingerprint/flatai-6d8c3eff2d45723a/test-bin-flatai.json" last_modified="2024-04-14T17:55:51.190676432+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":13957322908208868000,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-6d8c3eff2d45723a/dep-test-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/block-b5d75dc27ad4f2dd/lib-block.json" last_modified="2024-04-14T14:38:03.792653589+00:00">
@@ -452,9 +452,9 @@ walkdir = "2.5.0"
     ]
 }
 </file>
-<file name="./flattened_files.txt" last_modified="2024-04-14T17:49:28.353897775+00:00">
+<file name="./flattened_files.txt" last_modified="2024-04-14T17:55:56.991818621+00:00">
 </file>
-<file name="./src/main.rs" last_modified="2024-04-14T17:49:18.814247346+00:00">
+<file name="./src/main.rs" last_modified="2024-04-14T17:55:50.918015611+00:00">
 use chrono::offset::Utc;
 use chrono::DateTime;
 use clipboard::ClipboardContext;
@@ -466,6 +466,7 @@ use std::env;
 use std::ffi::OsStr;
 use std::fs::{self, File};
 use std::io::{self, BufRead, BufReader, Write};
+use std::path::Path;
 use std::path::PathBuf;
 use walkdir::WalkDir;
 
@@ -513,11 +514,24 @@ fn get_entries(start_dir: &str) -> Vec<walkdir::DirEntry> {
         .collect::<Vec<_>>()
 }
 
+fn read_file(path: &Path) -> io::Result<Vec<String>> {
+    let metadata = fs::metadata(path)?;
+    if metadata.len() < 1_000_000 {
+        let content = fs::read_to_string(path)?;
+        Ok(content.lines().map(String::from).collect())
+    } else {
+        let file = File::open(path)?;
+        let reader = BufReader::new(file);
+        Ok(reader.lines().filter_map(Result::ok).collect())
+    }
+}
+
 fn get_lines(
     entries: &[walkdir::DirEntry],
     project_type: Option<&str>,
     config: &Config,
 ) -> Result<Vec<String>, std::io::Error> {
+    // ... (rest of the function remains the same)
     let (file_types, file_names) = match project_type {
         Some(project_type) => {
             let project_config = config
@@ -574,19 +588,21 @@ fn get_lines(
                 && (file_types.contains(path.extension().and_then(OsStr::to_str).unwrap_or(""))
                     || file_names.contains(path.file_name().and_then(OsStr::to_str).unwrap_or("")))
             {
-                let file = File::open(path).ok()?;
-                let reader = BufReader::new(file);
+                let file_lines = match read_file(path) {
+                    Ok(lines) => lines,
+                    Err(_) => return None,
+                };
                 let metadata = fs::metadata(path).ok()?;
                 let modified_time = metadata.modified().ok()?;
                 let datetime: DateTime<Utc> = modified_time.into();
-                let mut file_lines = vec![format!(
+                let mut result = vec![format!(
                     "<file name=\"{}\" last_modified=\"{}\">",
                     path.display(),
                     datetime.to_rfc3339()
                 )];
-                file_lines.extend(reader.lines().filter_map(Result::ok));
-                file_lines.push("</file>".to_string());
-                Some(Ok(file_lines))
+                result.extend(file_lines);
+                result.push("</file>".to_string());
+                Some(Ok(result))
             } else {
                 None
             }
@@ -594,6 +610,7 @@ fn get_lines(
         .collect::<Result<Vec<_>, _>>()
         .map(|lines| lines.concat())
 }
+
 fn write_lines(output_file: &mut File, lines: &[String]) -> io::Result<()> {
     for line in lines {
         writeln!(output_file, "{}", line)?;
