@@ -4,10 +4,10 @@ use clipboard::ClipboardContext;
 use clipboard::ClipboardProvider;
 use rayon::prelude::*;
 use serde::Deserialize;
-use serde_json::from_str;
+
 use std::env;
 use std::ffi::OsStr;
-use std::fs::read_to_string;
+
 use std::fs::{self, File};
 use std::io::{self, BufRead, BufReader, Write};
 use std::path::PathBuf;
