@@ -14,7 +14,26 @@ Flatten Files is a Rust project designed to simplify the process of preparing yo
 
 ## Installation ⚙️
 
-To install this project, clone the repository and run `cargo build` to compile the Rust code.
+To install this project, clone the repository and run `cargo build --release` to compile the Rust code.
+
+To build the project for release and add the binary to your path, follow these steps:
+
+1. Build the project for release
+
+```sh
+cargo build --release
+```
+
+2. Add the target/release directory to your PATH.
+For bash or zsh, you can add this line to your ~/.bashrc or ~/.zshrc file:
+
+
+```sh
+mv target/release/flatten_files /usr/local/bin
+```
+
+
+
 
 ## Usage 🚀
 To use Flatten Files, navigate to the project directory and run the following command:
