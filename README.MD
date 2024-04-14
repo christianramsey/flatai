@@ -1,6 +1,8 @@
-# FLAT.AI - Flatten Files for AI 📁📄
-![Project Logo](logo.webp){:height="50px"}
-FLAT.AI is a Rust-based tool designed to prepare your codebase for AI analysis. It traverses a given directory, consolidating all `.rs`, `.py`, `.js` and `Cargo.toml` files into a single XML-formatted text file. This makes it easier for AI tools to parse and analyze your code, as they can process one large file instead of many smaller ones.
+# flatai - Flatten Files for AI 
+<div align="center">
+    <img src="logo.webp" alt="Project Logo" width="100px">
+</div>
+flatai is a Rust-based tool designed to prepare your codebase for AI analysis. It traverses a given directory, consolidating all `.rs`, `.py`, `.js` and `Cargo.toml` files into a single XML-formatted text file. This makes it easier for AI tools to parse and analyze your code, as they can process one large file instead of many smaller ones.
 ![Flatten Files Output](screenshot.png)
 
 
