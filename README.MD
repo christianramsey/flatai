@@ -1,10 +1,28 @@
-# flatai - Flatten Files for AI 
-<div align="center">
-    <img src="logo.webp" alt="Project Logo" width="100px">
-</div>
-flatai is a Rust-based tool designed to prepare your codebase for AI analysis. It traverses a given directory, consolidating all `.rs`, `.py`, `.js` and `Cargo.toml` files into a single XML-formatted text file. This makes it easier for AI tools to parse and analyze your code, as they can process one large file instead of many smaller ones.
+
+![Project Logo](logo.webp)
+
+flatai is a Rust-based tool designed to equip a language model (LLM) with "just enough codebase awareness" to assist you in problem-solving. Currently, it's a brute force operation that works exclusively with Rust projects, but optimization are planned weekly.
+
+flatai prepares your codebase for AI analysis by traversing a given directory and consolidating all `.rs`, and `Cargo.toml` files (py and js/ts coming soon) into a single XML-formatted text file. This approach simplifies the parsing and analysis process for AI tools, as they can process a single, comprehensive file instead of numerous smaller ones.
+
+Please note that flatai is a work in progress. Future update will include ability to use flatai as an agent that you pass a question to and it regularly updates your contect file for use with LLMs (currently supporting anthropic's claude and openai's gpt).
+
 ![Flatten Files Output](screenshot.png)
 
+
+## Features to Add 🚀
+
+Here are some features we're planning to add in the future:
+
+- **Compress Your Repo**: We're planning to add a feature that will compress your repository for easier handling and storage.
+
+- **Optimize Based on Your Question**: We're working on a feature that will take a question or problem as an argument and optimize the code based on your question and all files in the repository.
+
+- **Support for JavaScript/TypeScript and Python**: We're planning to add support for more languages, including JavaScript/TypeScript and Python.
+
+- **Provide Just Enough Codebase Context**: The output will be improved to provide just enough codebase context to answer your question.
+
+- **Vector Index of Packages**: We're planning to pull in the packages you are using and create a vector index of packages. This will allow you to reference specific parts of the question more easily.
 
 
 ## Table of Contents 📑
@@ -61,6 +79,8 @@ Here is an example screenshot of the `flatten_files.txt` file:
 ![Flatten Files Output](screenshot.png)
 
 You can use this file for AI analysis and RAG (retrieval augmented generation).
+
+
 
 ## Contact 📞
 
