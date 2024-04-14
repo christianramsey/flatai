@@ -31,11 +31,11 @@ fn main() -> io::Result<()> {
             {
                 let file = File::open(path).unwrap();
                 let reader = BufReader::new(file);
-                let metadata = fs::metadata(path).unwrap();
+                let _metadata = fs::metadata(path).unwrap();
                 let metadata = fs::metadata(path).unwrap();
                 let modified_time = metadata.modified().unwrap();
                 let datetime: DateTime<Utc> = modified_time.into(); // convert SystemTime to DateTime
-                let mut file_lines = vec![format!(
+                let _file_lines = vec![format!(
                     "<file name=\"{}\" last_modified=\"{}\">",
                     path.display(),
                     datetime.to_rfc3339() // format DateTime as a string
