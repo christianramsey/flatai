@@ -1,4 +1,4 @@
-<file name="./Cargo.toml" last_modified="2024-04-14T17:08:41.323018869+00:00">
+<file name="./Cargo.toml" last_modified="2024-04-14T18:12:34.205174532+00:00">
 [package]
 name = "flatai"
 version = "0.1.0"
@@ -13,8 +13,12 @@ rayon = "1.10.0"
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 walkdir = "2.5.0"
+
+[[bench]]
+name = "bench"
+harness = false
 </file>
-<file name="./target/.rustc_info.json" last_modified="2024-04-14T17:55:56.839101608+00:00">
+<file name="./target/.rustc_info.json" last_modified="2024-04-14T18:16:19.512299283+00:00">
 {"rustc_fingerprint":15591129393572369459,"outputs":{"4614504638168534921":{"success":true,"status":"","code":0,"stdout":"rustc 1.77.1 (7cf61ebde 2024-03-27)\nbinary: rustc\ncommit-hash: 7cf61ebde7b22796c69757901dd346d0fe70bd97\ncommit-date: 2024-03-27\nhost: aarch64-apple-darwin\nrelease: 1.77.1\nLLVM version: 17.0.6\n","stderr":""},"15729799797837862367":{"success":true,"status":"","code":0,"stdout":"___\nlib___.rlib\nlib___.dylib\nlib___.dylib\nlib___.a\nlib___.dylib\n/Users/fanlizheng/.rustup/toolchains/stable-aarch64-apple-darwin\noff\npacked\nunpacked\n___\ndebug_assertions\npanic=\"unwind\"\nproc_macro\ntarget_arch=\"aarch64\"\ntarget_endian=\"little\"\ntarget_env=\"\"\ntarget_family=\"unix\"\ntarget_feature=\"aes\"\ntarget_feature=\"crc\"\ntarget_feature=\"dit\"\ntarget_feature=\"dotprod\"\ntarget_feature=\"dpb\"\ntarget_feature=\"dpb2\"\ntarget_feature=\"fcma\"\ntarget_feature=\"fhm\"\ntarget_feature=\"flagm\"\ntarget_feature=\"fp16\"\ntarget_feature=\"frintts\"\ntarget_feature=\"jsconv\"\ntarget_feature=\"lor\"\ntarget_feature=\"lse\"\ntarget_feature=\"neon\"\ntarget_feature=\"paca\"\ntarget_feature=\"pacg\"\ntarget_feature=\"pan\"\ntarget_feature=\"pmuv3\"\ntarget_feature=\"ras\"\ntarget_feature=\"rcpc\"\ntarget_feature=\"rcpc2\"\ntarget_feature=\"rdm\"\ntarget_feature=\"sb\"\ntarget_feature=\"sha2\"\ntarget_feature=\"sha3\"\ntarget_feature=\"ssbs\"\ntarget_feature=\"vh\"\ntarget_has_atomic=\"128\"\ntarget_has_atomic=\"16\"\ntarget_has_atomic=\"32\"\ntarget_has_atomic=\"64\"\ntarget_has_atomic=\"8\"\ntarget_has_atomic=\"ptr\"\ntarget_os=\"macos\"\ntarget_pointer_width=\"64\"\ntarget_vendor=\"apple\"\nunix\n","stderr":""}},"successes":{}}
 </file>
 <file name="./target/release/.fingerprint/crossbeam-deque-634207117daa7e29/lib-crossbeam-deque.json" last_modified="2024-04-14T15:22:29.653784629+00:00">
@@ -95,6 +99,9 @@ walkdir = "2.5.0"
 <file name="./target/release/.fingerprint/ryu-f42d42d1b82275da/lib-ryu.json" last_modified="2024-04-14T17:23:42.158765778+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":13901881936739684103,"profile":18277820415669657429,"path":1582857360010588275,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/ryu-f42d42d1b82275da/dep-lib-ryu"}}],"rustflags":[],"metadata":10387617312689919117,"config":2202906307356721367,"compile_kind":0}
 </file>
+<file name="./target/release/.fingerprint/flatai-0e1799dfc7983e5c/bin-flatai.json" last_modified="2024-04-14T18:12:35.196334032+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":18277820415669657429,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,2194429589438559297],[8100971815023208630,"clipboard",false,2861288535087008295],[13034813759306463744,"flatai",false,3453339784240600748],[15202177393746453064,"serde",false,15008800038525148961],[16395531893067545336,"chrono",false,1023173079130441246],[16421817155455767742,"serde_json",false,430624544264056619],[17775862536196513609,"rayon",false,6490442504161770159]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/flatai-0e1799dfc7983e5c/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
 <file name="./target/release/.fingerprint/malloc_buf-4dbef152564c0af0/lib-malloc_buf.json" last_modified="2024-04-14T15:22:29.536467844+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":1738811220870652103,"profile":18277820415669657429,"path":2759519968394457936,"deps":[[11943424025318460506,"libc",false,15665978312649626024]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/malloc_buf-4dbef152564c0af0/dep-lib-malloc_buf"}}],"rustflags":[],"metadata":1657999421880634387,"config":2202906307356721367,"compile_kind":0}
 </file>
@@ -104,8 +111,14 @@ walkdir = "2.5.0"
 <file name="./target/release/.fingerprint/iana-time-zone-81e72ae116afeef9/lib-iana-time-zone.json" last_modified="2024-04-14T15:22:28.871616314+00:00">
 {"rustc":10406382783369853442,"features":"[\"fallback\"]","declared_features":"","target":14189373027157833265,"profile":18277820415669657429,"path":8734805544145175893,"deps":[[17355430465139203189,"core_foundation_sys",false,7450347058880747542]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/iana-time-zone-81e72ae116afeef9/dep-lib-iana-time-zone"}}],"rustflags":[],"metadata":14816295700462397125,"config":2202906307356721367,"compile_kind":0}
 </file>
+<file name="./target/release/.fingerprint/flatai-0ea5233f65688258/test-bin-flatai.json" last_modified="2024-04-14T18:13:27.812596212+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":11799026285378535682,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,2194429589438559297],[8100971815023208630,"clipboard",false,2861288535087008295],[13034813759306463744,"flatai",false,3453339784240600748],[15202177393746453064,"serde",false,15008800038525148961],[16395531893067545336,"chrono",false,1023173079130441246],[16421817155455767742,"serde_json",false,430624544264056619],[17775862536196513609,"rayon",false,6490442504161770159]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/flatai-0ea5233f65688258/dep-test-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
 <file name="./target/release/.fingerprint/autocfg-ecb5de0708c8c7a5/lib-autocfg.json" last_modified="2024-04-14T15:22:28.829669191+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":14886237245231788030,"profile":385020235239010606,"path":15109904747064625858,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/autocfg-ecb5de0708c8c7a5/dep-lib-autocfg"}}],"rustflags":[],"metadata":13102859075309379048,"config":2202906307356721367,"compile_kind":0}
+</file>
+<file name="./target/release/.fingerprint/flatai-de6a1c05847eb197/test-lib-flatai.json" last_modified="2024-04-14T18:13:27.839721976+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":15802896471869343056,"profile":11799026285378535682,"path":17523903030608720598,"deps":[[496936660758387454,"walkdir",false,2194429589438559297],[8100971815023208630,"clipboard",false,2861288535087008295],[15202177393746453064,"serde",false,15008800038525148961],[16395531893067545336,"chrono",false,1023173079130441246],[16421817155455767742,"serde_json",false,430624544264056619],[17775862536196513609,"rayon",false,6490442504161770159]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/flatai-de6a1c05847eb197/dep-test-lib-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/release/.fingerprint/quote-a2d38b856fcf279a/lib-quote.json" last_modified="2024-04-14T17:23:42.778498271+00:00">
 {"rustc":10406382783369853442,"features":"[\"proc-macro\"]","declared_features":"","target":10824007166531090010,"profile":385020235239010606,"path":6642210970357418804,"deps":[[8422320316573217860,"proc_macro2",false,7876505157614943736]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/quote-a2d38b856fcf279a/dep-lib-quote"}}],"rustflags":[],"metadata":2717943770976187624,"config":2202906307356721367,"compile_kind":0}
@@ -139,6 +152,9 @@ walkdir = "2.5.0"
 </file>
 <file name="./target/release/.fingerprint/serde_json-fd8c6ac589a2738a/build-script-build-script-build.json" last_modified="2024-04-14T17:23:42.092213337+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"std\"]","declared_features":"","target":427768481117760528,"profile":385020235239010606,"path":13508262025550004556,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/serde_json-fd8c6ac589a2738a/dep-build-script-build-script-build"}}],"rustflags":[],"metadata":16261601059619201932,"config":2202906307356721367,"compile_kind":0}
+</file>
+<file name="./target/release/.fingerprint/flatai-cf914c0cd09bdbab/lib-flatai.json" last_modified="2024-04-14T18:12:34.956363121+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":15802896471869343056,"profile":18277820415669657429,"path":17523903030608720598,"deps":[[496936660758387454,"walkdir",false,2194429589438559297],[8100971815023208630,"clipboard",false,2861288535087008295],[15202177393746453064,"serde",false,15008800038525148961],[16395531893067545336,"chrono",false,1023173079130441246],[16421817155455767742,"serde_json",false,430624544264056619],[17775862536196513609,"rayon",false,6490442504161770159]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/flatai-cf914c0cd09bdbab/dep-lib-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/release/.fingerprint/num-traits-271c4b13d8c87930/build-script-build-script-build.json" last_modified="2024-04-14T15:22:28.929831098+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":2297296889237502566,"profile":385020235239010606,"path":3017659606365273291,"deps":[[14896141006724874067,"autocfg",false,6948832575738588561]],"local":[{"CheckDepInfo":{"dep_info":"release/.fingerprint/num-traits-271c4b13d8c87930/dep-build-script-build-script-build"}}],"rustflags":[],"metadata":14621636500951049976,"config":2202906307356721367,"compile_kind":0}
@@ -218,17 +234,26 @@ walkdir = "2.5.0"
 <file name="./target/debug/.fingerprint/serde-98a81abc5b86ae5a/lib-serde.json" last_modified="2024-04-14T17:10:21.415610789+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"derive\", \"serde_derive\", \"std\"]","declared_features":"","target":12518487807107382959,"profile":4374887572363265115,"path":8292434741625125785,"deps":[[10363999352633472040,"serde_derive",false,8470697860458453343],[15202177393746453064,"build_script_build",false,1642701603995865489]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/serde-98a81abc5b86ae5a/dep-lib-serde"}}],"rustflags":[],"metadata":3767376778934503013,"config":2202906307356721367,"compile_kind":0}
 </file>
+<file name="./target/debug/.fingerprint/flatai-15645cff4ed42f9b/lib-flatai.json" last_modified="2024-04-14T18:12:23.606173127+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":15802896471869343056,"profile":14400670141151969058,"path":17523903030608720598,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-15645cff4ed42f9b/dep-lib-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
 <file name="./target/debug/.fingerprint/serde-061bb31a5e8a0683/lib-serde.json" last_modified="2024-04-14T17:08:46.672966397+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"derive\", \"serde_derive\", \"std\"]","declared_features":"","target":12518487807107382959,"profile":3797293754785534760,"path":8292434741625125785,"deps":[[10363999352633472040,"serde_derive",false,8470697860458453343],[15202177393746453064,"build_script_build",false,1642701603995865489]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/serde-061bb31a5e8a0683/dep-lib-serde"}}],"rustflags":[],"metadata":3767376778934503013,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/itoa-9160c7f3a1263eb5/lib-itoa.json" last_modified="2024-04-14T17:08:45.631019064+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":17114873591667335244,"profile":3797293754785534760,"path":776068812280447684,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/itoa-9160c7f3a1263eb5/dep-lib-itoa"}}],"rustflags":[],"metadata":851671291587502216,"config":2202906307356721367,"compile_kind":0}
 </file>
+<file name="./target/debug/.fingerprint/flatai-503b58b730cac52c/lib-flatai.json" last_modified="2024-04-14T18:16:19.309793656+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":15802896471869343056,"profile":14453530908159220714,"path":17523903030608720598,"deps":[[496936660758387454,"walkdir",false,16372805580369832963],[8100971815023208630,"clipboard",false,11350859997792590335],[15202177393746453064,"serde",false,5668562672545518792],[16395531893067545336,"chrono",false,14789683991867358533],[16421817155455767742,"serde_json",false,17671036727331824096],[17775862536196513609,"rayon",false,16794621761518067054]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-503b58b730cac52c/dep-lib-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
 <file name="./target/debug/.fingerprint/libc-6341648aa34e6e7e/build-script-build-script-build.json" last_modified="2024-04-14T14:38:03.250996319+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"std\"]","declared_features":"","target":8188216131759486267,"profile":1200860260873630964,"path":4032524832860907062,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/libc-6341648aa34e6e7e/dep-build-script-build-script-build"}}],"rustflags":[],"metadata":14998826085014762512,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/num-traits-34d32b43c5916a34/lib-num-traits.json" last_modified="2024-04-14T15:07:05.848546784+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":13532427974969447295,"profile":4374887572363265115,"path":18097724777536711560,"deps":[[5773939109567547450,"build_script_build",false,12822013884640571549]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/num-traits-34d32b43c5916a34/dep-lib-num-traits"}}],"rustflags":[],"metadata":14621636500951049976,"config":2202906307356721367,"compile_kind":0}
+</file>
+<file name="./target/debug/.fingerprint/flatai-3b8e5e5d1f69bd7a/bin-flatai.json" last_modified="2024-04-14T18:12:23.649295154+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14400670141151969058,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[13034813759306463744,"flatai",false,11183026639692066842],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-3b8e5e5d1f69bd7a/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/serde-8fb053e76410a0b4/lib-serde.json" last_modified="2024-04-14T17:08:00.450511023+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"std\"]","declared_features":"","target":12518487807107382959,"profile":4374887572363265115,"path":8292434741625125785,"deps":[[15202177393746453064,"build_script_build",false,16713036315053685794]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/serde-8fb053e76410a0b4/dep-lib-serde"}}],"rustflags":[],"metadata":3767376778934503013,"config":2202906307356721367,"compile_kind":0}
@@ -305,8 +330,14 @@ walkdir = "2.5.0"
 <file name="./target/debug/.fingerprint/rayon-core-19a0bda74c9729d5/lib-rayon-core.json" last_modified="2024-04-14T14:44:36.512001787+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":9193226288797123283,"profile":3797293754785534760,"path":209309286213245903,"deps":[[347056493892918784,"crossbeam_utils",false,5966584037361633030],[10618402922884942723,"build_script_build",false,8745163293864434840],[17516414546981198098,"crossbeam_deque",false,16595412243977037988]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/rayon-core-19a0bda74c9729d5/dep-lib-rayon-core"}}],"rustflags":[],"metadata":14590378261418540923,"config":2202906307356721367,"compile_kind":0}
 </file>
+<file name="./target/debug/.fingerprint/flatai-1d7c0c3043521963/test-bench-bench.json" last_modified="2024-04-14T18:04:51.056722270+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":16666669584586820858,"profile":13957322908208868000,"path":3816881812389346008,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[13034813759306463744,"flatai",false,11183026639692066842],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-1d7c0c3043521963/dep-test-bench-bench"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
 <file name="./target/debug/.fingerprint/walkdir-7a69ce2c413dcd32/lib-walkdir.json" last_modified="2024-04-14T14:16:35.356408238+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":5370344535018329911,"profile":3797293754785534760,"path":17911329311730463596,"deps":[[5929650549794239381,"same_file",false,10155298958089784819]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/walkdir-7a69ce2c413dcd32/dep-lib-walkdir"}}],"rustflags":[],"metadata":4122289770401600519,"config":2202906307356721367,"compile_kind":0}
+</file>
+<file name="./target/debug/.fingerprint/flatai-e4396929c6dc5e7d/bin-flatai.json" last_modified="2024-04-14T18:16:19.510916108+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14453530908159220714,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16372805580369832963],[8100971815023208630,"clipboard",false,11350859997792590335],[13034813759306463744,"flatai",false,3155396940438139484],[15202177393746453064,"serde",false,5668562672545518792],[16395531893067545336,"chrono",false,14789683991867358533],[16421817155455767742,"serde_json",false,17671036727331824096],[17775862536196513609,"rayon",false,16794621761518067054]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-e4396929c6dc5e7d/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/flatai-1cc101a5acf7a30b/bin-flatai.json" last_modified="2024-04-14T17:55:56.838311058+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14453530908159220714,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16372805580369832963],[8100971815023208630,"clipboard",false,11350859997792590335],[15202177393746453064,"serde",false,5668562672545518792],[16395531893067545336,"chrono",false,14789683991867358533],[16421817155455767742,"serde_json",false,17671036727331824096],[17775862536196513609,"rayon",false,16794621761518067054]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-1cc101a5acf7a30b/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
@@ -337,6 +368,9 @@ walkdir = "2.5.0"
 </file>
 <file name="./target/debug/.fingerprint/serde_json-7b4f2299cf63d126/lib-serde_json.json" last_modified="2024-04-14T17:08:46.992327941+00:00">
 {"rustc":10406382783369853442,"features":"[\"default\", \"std\"]","declared_features":"","target":1572482250304784865,"profile":3797293754785534760,"path":7322224997445136072,"deps":[[9536766987390807310,"ryu",false,8659018998873859574],[11284357528473424989,"itoa",false,7475935558333229306],[15202177393746453064,"serde",false,8404545981153712845],[16421817155455767742,"build_script_build",false,2834034768637523782]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/serde_json-7b4f2299cf63d126/dep-lib-serde_json"}}],"rustflags":[],"metadata":16261601059619201932,"config":2202906307356721367,"compile_kind":0}
+</file>
+<file name="./target/debug/.fingerprint/flatai-a5ee7404968bac39/test-bin-flatai.json" last_modified="2024-04-14T18:12:23.649284446+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":13957322908208868000,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[13034813759306463744,"flatai",false,11183026639692066842],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-a5ee7404968bac39/dep-test-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/flatten_files-56db3691e91dfb5c/test-bin-flatten_files.json" last_modified="2024-04-14T14:42:30.309985211+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":1745525715914712604,"profile":13957322908208868000,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatten_files-56db3691e91dfb5c/dep-test-bin-flatten_files"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
@@ -395,6 +429,9 @@ walkdir = "2.5.0"
 <file name="./target/debug/.fingerprint/block-b5d75dc27ad4f2dd/lib-block.json" last_modified="2024-04-14T14:38:03.792653589+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":1600799937813684028,"profile":3797293754785534760,"path":3247765173972576462,"deps":[],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/block-b5d75dc27ad4f2dd/dep-lib-block"}}],"rustflags":[],"metadata":4052767643895724751,"config":2202906307356721367,"compile_kind":0}
 </file>
+<file name="./target/debug/.fingerprint/flatai-188f5a9c7fa91519/test-lib-flatai.json" last_modified="2024-04-14T18:12:23.606103585+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":15802896471869343056,"profile":13957322908208868000,"path":17523903030608720598,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-188f5a9c7fa91519/dep-test-lib-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
 <file name="./target/debug/.fingerprint/walkdir-dc7e7af5e1b85b59/lib-walkdir.json" last_modified="2024-04-12T01:55:03.305913210+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":5370344535018329911,"profile":4374887572363265115,"path":17911329311730463596,"deps":[[5929650549794239381,"same_file",false,13404091497962810223]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/walkdir-dc7e7af5e1b85b59/dep-lib-walkdir"}}],"rustflags":[],"metadata":4122289770401600519,"config":2202906307356721367,"compile_kind":0}
 </file>
@@ -421,6 +458,9 @@ walkdir = "2.5.0"
 </file>
 <file name="./target/debug/.fingerprint/flatai-5bdec64e43ec5d30/bin-flatai.json" last_modified="2024-04-14T17:06:04.433915711+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14400670141151969058,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[15202177393746453064,"serde",false,6155021159487380610],[16395531893067545336,"chrono",false,161148746766419634],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-5bdec64e43ec5d30/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
+</file>
+<file name="./target/debug/.fingerprint/flatai-2e82ac72be120919/test-bench-bench.json" last_modified="2024-04-14T18:01:01.277155419+00:00">
+{"rustc":10406382783369853442,"features":"[]","declared_features":"","target":16666669584586820858,"profile":13957322908208868000,"path":3816881812389346008,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[15202177393746453064,"serde",false,8404545981153712845],[16395531893067545336,"chrono",false,161148746766419634],[16421817155455767742,"serde_json",false,6404199704084909112],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-2e82ac72be120919/dep-test-bench-bench"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
 </file>
 <file name="./target/debug/.fingerprint/flatai-ff3500523037ee07/bin-flatai.json" last_modified="2024-04-14T16:59:57.960116361+00:00">
 {"rustc":10406382783369853442,"features":"[]","declared_features":"","target":12025401770007463230,"profile":14400670141151969058,"path":1684066648322511884,"deps":[[496936660758387454,"walkdir",false,16201711445283026382],[8100971815023208630,"clipboard",false,16259931233026766575],[16395531893067545336,"chrono",false,161148746766419634],[17775862536196513609,"rayon",false,13482250609975361226]],"local":[{"CheckDepInfo":{"dep_info":"debug/.fingerprint/flatai-ff3500523037ee07/dep-bin-flatai"}}],"rustflags":[],"metadata":7797948686568424061,"config":2202906307356721367,"compile_kind":0}
@@ -452,9 +492,26 @@ walkdir = "2.5.0"
     ]
 }
 </file>
-<file name="./flattened_files.txt" last_modified="2024-04-14T17:55:56.991818621+00:00">
+<file name="./flattened_files.txt" last_modified="2024-04-14T18:16:19.685509509+00:00">
 </file>
-<file name="./src/main.rs" last_modified="2024-04-14T17:55:50.918015611+00:00">
+<file name="./benches/bench.rs" last_modified="2024-04-14T18:15:03.427597791+00:00">
+#![feature(test)]
+
+extern crate test;
+
+use flatai::get_entries;
+use flatai::get_lines; // replace with your crate name
+use flatai::read_config;
+use test::Bencher;
+
+#[bench]
+fn bench_get_lines(b: &mut Bencher) {
+    let config = read_config().unwrap();
+    let entries = get_entries("."); // replace with your directory
+    b.iter(|| get_lines(&entries, None, &config));
+}
+</file>
+<file name="./src/lib.rs" last_modified="2024-04-14T18:12:23.315924399+00:00">
 use chrono::offset::Utc;
 use chrono::DateTime;
 use clipboard::ClipboardContext;
@@ -471,7 +528,7 @@ use std::path::PathBuf;
 use walkdir::WalkDir;
 
 #[derive(Deserialize)]
-struct Config {
+pub struct Config {
     general_files: Vec<String>,
     projects: Vec<Project>,
 }
@@ -483,38 +540,38 @@ struct Project {
     file_names: Vec<String>,
 }
 
-fn read_config_from_str(config_str: &str) -> Result<Config, std::io::Error> {
+pub fn read_config_from_str(config_str: &str) -> Result<Config, std::io::Error> {
     let config = serde_json::from_str(config_str)
         .map_err(|err| std::io::Error::new(std::io::ErrorKind::Other, err))?;
     Ok(config)
 }
 
-fn read_config() -> Result<Config, std::io::Error> {
+pub fn read_config() -> Result<Config, std::io::Error> {
     let config_str = fs::read_to_string("config.json")?;
     read_config_from_str(&config_str)
 }
 
-fn get_start_dir() -> Result<String, &'static str> {
+pub fn get_start_dir() -> Result<String, &'static str> {
     let args: Vec<String> = env::args().collect();
     args.get(1)
         .ok_or("Usage: flatten_files <directory>")
         .map(|s| s.to_string())
 }
 
-fn create_output_file(start_dir: &str) -> io::Result<(File, PathBuf)> {
+pub fn create_output_file(start_dir: &str) -> io::Result<(File, PathBuf)> {
     let output_path = PathBuf::from(start_dir).join("flattened_files.txt");
     let output_file = File::create(&output_path)?;
     Ok((output_file, output_path))
 }
 
-fn get_entries(start_dir: &str) -> Vec<walkdir::DirEntry> {
+pub fn get_entries(start_dir: &str) -> Vec<walkdir::DirEntry> {
     WalkDir::new(start_dir)
         .into_iter()
         .filter_map(|e| e.ok())
         .collect::<Vec<_>>()
 }
 
-fn read_file(path: &Path) -> io::Result<Vec<String>> {
+pub fn read_file(path: &Path) -> io::Result<Vec<String>> {
     let metadata = fs::metadata(path)?;
     if metadata.len() < 1_000_000 {
         let content = fs::read_to_string(path)?;
@@ -526,7 +583,7 @@ fn read_file(path: &Path) -> io::Result<Vec<String>> {
     }
 }
 
-fn get_lines(
+pub fn get_lines(
     entries: &[walkdir::DirEntry],
     project_type: Option<&str>,
     config: &Config,
@@ -611,19 +668,26 @@ fn get_lines(
         .map(|lines| lines.concat())
 }
 
-fn write_lines(output_file: &mut File, lines: &[String]) -> io::Result<()> {
+pub fn write_lines(output_file: &mut File, lines: &[String]) -> io::Result<()> {
     for line in lines {
         writeln!(output_file, "{}", line)?;
     }
     Ok(())
 }
 
-fn copy_to_clipboard(output_path: &PathBuf) -> io::Result<()> {
+pub fn copy_to_clipboard(output_path: &PathBuf) -> io::Result<()> {
     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
     let content = fs::read_to_string(output_path)?;
     ctx.set_contents(content).unwrap();
     Ok(())
 }
+</file>
+<file name="./src/main.rs" last_modified="2024-04-14T18:07:29.074596879+00:00">
+use flatai::{
+    copy_to_clipboard, create_output_file, get_entries, get_lines, get_start_dir, read_config,
+    write_lines,
+};
+use std::{env, io};
 
 fn main() -> io::Result<()> {
     let args: Vec<String> = env::args().collect();
