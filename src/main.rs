@@ -4,6 +4,7 @@ use clipboard::ClipboardContext;
 use clipboard::ClipboardProvider;
 use rayon::prelude::*;
 use serde::Deserialize;
+use std::collections::HashSet;
 use std::env;
 use std::ffi::OsStr;
 use std::fs::{self, File};
@@ -73,18 +74,26 @@ fn get_lines(
                     )
                 })?;
             (
-                project_config.file_types.clone(),
-                project_config.file_names.clone(),
+                project_config
+                    .file_types
+                    .clone()
+                    .into_iter()
+                    .collect::<HashSet<_>>(),
+                project_config
+                    .file_names
+                    .clone()
+                    .into_iter()
+                    .collect::<HashSet<_>>(),
             )
         }
         None => {
-            let file_types: Vec<String> = config
+            let file_types: HashSet<String> = config
                 .projects
                 .iter()
                 .flat_map(|project| &project.file_types)
                 .cloned()
                 .collect();
-            let file_names: Vec<String> = config
+            let file_names: HashSet<String> = config
                 .projects
                 .iter()
                 .flat_map(|project| &project.file_names)
@@ -94,23 +103,19 @@ fn get_lines(
         }
     };
 
-    let mut file_names = [&file_names[..], &config.general_files[..]].concat();
-    file_names.extend_from_slice(&config.general_files);
+    let general_files: HashSet<_> = config.general_files.iter().cloned().collect();
+    let file_names = file_names
+        .union(&general_files)
+        .cloned()
+        .collect::<HashSet<_>>();
 
     entries
         .par_iter()
         .filter_map(|entry| {
             let path = entry.path();
             if path.is_file()
-                && (file_types.iter().any(|ext| {
-                    path.extension()
-                        .and_then(OsStr::to_str)
-                        .map_or(false, |e| e == ext)
-                }) || file_names.iter().any(|name| {
-                    path.file_name()
-                        .and_then(OsStr::to_str)
-                        .map_or(false, |n| n == name)
-                }))
+                && (file_types.contains(path.extension().and_then(OsStr::to_str).unwrap_or(""))
+                    || file_names.contains(path.file_name().and_then(OsStr::to_str).unwrap_or("")))
             {
                 let file = File::open(path).ok()?;
                 let reader = BufReader::new(file);
@@ -132,7 +137,6 @@ fn get_lines(
         .collect::<Result<Vec<_>, _>>()
         .map(|lines| lines.concat())
 }
-
 fn write_lines(output_file: &mut File, lines: &[String]) -> io::Result<()> {
     for line in lines {
         writeln!(output_file, "{}", line)?;
