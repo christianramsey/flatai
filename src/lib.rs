@@ -167,3 +167,26 @@ pub fn copy_to_clipboard(output_path: &PathBuf) -> io::Result<()> {
     ctx.set_contents(content).unwrap();
     Ok(())
 }
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::fs::File;
+    use std::io::Write;
+    use std::path::PathBuf;
+
+    #[test]
+    fn test_copy_to_clipboard() {
+        // Create a temporary file and write some data to it
+        let mut temp_file = tempfile::tempfile().unwrap();
+        writeln!(temp_file, "Hello, world!").unwrap();
+
+        // Get the path of the temporary file
+        let temp_path = temp_file.path().to_path_buf();
+
+        // Call the function
+        let result = copy_to_clipboard(&temp_path);
+
+        // Check that the function succeeded
+        assert!(result.is_ok());
+    }
+}
