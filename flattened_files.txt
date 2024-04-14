@@ -1,0 +1,38 @@
+---- File: ./Cargo.toml ----
+[package]
+name = "flatten_files"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+walkdir = "2.5.0"
+
+---- File: ./src/main.rs ----
+use std::fs::{self, File};
+use std::io::{self, Write};
+use walkdir::WalkDir;
+
+fn main() -> io::Result<()> {
+    let mut output_file = File::create("flattened_files.txt")?;
+
+    for entry in WalkDir::new(".") { // Starts in the current directory; change "." to another path if needed
+        let entry = match entry {
+            Ok(e) => e,
+            Err(err) => {
+                eprintln!("Warning: failed to access entry: {}", err);
+                continue;
+            },
+        };
+        let path = entry.path();
+        if path.is_file() && (path.extension().map_or(false, |ext| ext == "rs") || path.file_name().map_or(false, |name| name == "Cargo.toml")) {
+            let content = fs::read_to_string(path)?;
+            let path_str = path.to_str().unwrap_or("[Invalid UTF-8 in path]");
+            writeln!(output_file, "---- File: {} ----\n{}", path_str, content)?;
+        }
+    }
+
+    Ok(())
+}
+
