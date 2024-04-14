@@ -12,7 +12,7 @@ clipboard = "0.5.0"
 rayon = "1.10.0"
 walkdir = "2.5.0"
 </file>
-<file name="./src/main.rs" last_modified="2024-04-14T15:35:40.933087598+00:00">
+<file name="./src/main.rs" last_modified="2024-04-14T16:49:13.492721469+00:00">
 use chrono::offset::Utc;
 use chrono::DateTime;
 use clipboard::ClipboardContext;
@@ -24,19 +24,31 @@ use std::io::{self, BufRead, BufReader, Write};
 use std::path::PathBuf;
 use walkdir::WalkDir;
 
-fn main() -> io::Result<()> {
+// Function to get the start directory from command line arguments
+fn get_start_dir() -> Result<String, &'static str> {
     let args: Vec<String> = env::args().collect();
-    let start_dir = args.get(1).expect("Usage: flatten_files <directory>");
+    args.get(1)
+        .ok_or("Usage: flatten_files <directory>")
+        .map(|s| s.to_string())
+}
 
+// Function to create the output file
+fn create_output_file(start_dir: &str) -> io::Result<(File, PathBuf)> {
     let output_path = PathBuf::from(start_dir).join("flattened_files.txt");
-    let mut output_file = File::create(&output_path)?;
-
-    let entries: Vec<_> = WalkDir::new(start_dir)
+    let output_file = File::create(&output_path)?;
+    Ok((output_file, output_path))
+}
+// Function to get the entries in the start directory
+fn get_entries(start_dir: &str) -> Vec<walkdir::DirEntry> {
+    WalkDir::new(start_dir)
         .into_iter()
-        .filter_map(Result::ok)
-        .collect();
+        .filter_map(|e| e.ok())
+        .collect::<Vec<_>>()
+}
 
-    let lines: Vec<String> = entries
+// Function to get the lines from the entries
+fn get_lines(entries: &[walkdir::DirEntry]) -> io::Result<Vec<String>> {
+    entries
         .par_iter()
         .filter_map(|entry| {
             let path = entry.path();
@@ -44,18 +56,10 @@ fn main() -> io::Result<()> {
                 && (path.extension().map_or(false, |ext| ext == "rs")
                     || path.file_name().map_or(false, |name| name == "Cargo.toml"))
             {
-                let file = File::open(path).unwrap();
+                let file = File::open(path).ok()?;
                 let reader = BufReader::new(file);
-                let _metadata = fs::metadata(path).unwrap();
-                let metadata = fs::metadata(path).unwrap();
-                let modified_time = metadata.modified().unwrap();
-                let datetime: DateTime<Utc> = modified_time.into(); // convert SystemTime to DateTime
-                let _file_lines = vec![format!(
-                    "<file name=\"{}\" last_modified=\"{}\">",
-                    path.display(),
-                    datetime.to_rfc3339() // format DateTime as a string
-                )];
-                let modified_time = metadata.modified().unwrap();
+                let metadata = fs::metadata(path).ok()?;
+                let modified_time = metadata.modified().ok()?;
                 let datetime: DateTime<Utc> = modified_time.into(); // convert SystemTime to DateTime
                 let mut file_lines = vec![format!(
                     "<file name=\"{}\" last_modified=\"{}\">",
@@ -64,26 +68,43 @@ fn main() -> io::Result<()> {
                 )];
                 file_lines.extend(reader.lines().filter_map(Result::ok));
                 file_lines.push("</file>".to_string());
-                Some(file_lines)
+                Some(Ok(file_lines))
             } else {
                 None
             }
         })
-        .flatten()
-        .collect();
-
+        .collect::<Result<Vec<_>, _>>()
+        .map(|lines| lines.concat())
+}
+// Function to write the lines to the output file
+fn write_lines(output_file: &mut File, lines: &[String]) -> io::Result<()> {
     for line in lines {
         writeln!(output_file, "{}", line)?;
     }
+    Ok(())
+}
 
+// Function to copy the contents of the output file to the clipboard
+fn copy_to_clipboard(output_path: &PathBuf) -> io::Result<()> {
     let mut ctx: ClipboardContext = ClipboardProvider::new().unwrap();
-    let content = fs::read_to_string(&output_path)?;
+    let content = fs::read_to_string(output_path)?;
     ctx.set_contents(content).unwrap();
+    Ok(())
+}
 
+// The main function now calls the other functions
+fn main() -> io::Result<()> {
+    let start_dir = get_start_dir().expect("Failed to get start directory");
+    let (mut output_file, output_path) = create_output_file(&start_dir)?;
+    let entries = get_entries(&start_dir);
+    let lines = get_lines(&entries)?;
+    write_lines(&mut output_file, &lines)?;
+    copy_to_clipboard(&output_path)?;
     println!(
         "🎉 Files have been flattened into {}! 🎉",
         output_path.display()
     );
+
     if env::var("CARGO_PKG_NAME").is_ok() {
         let release_executable_path = env::current_exe()?
             .parent()
@@ -103,6 +124,7 @@ fn main() -> io::Result<()> {
         println!("Add the following command to your ~/.zshrc file:");
         println!("{}", zshrc_command);
     }
+
     Ok(())
 }
 </file>
