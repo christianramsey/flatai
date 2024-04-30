@@ -3,7 +3,7 @@
     "projects": [
         {
             "project_type": "python",
-            "file_types": ["py", "txt"],
+            "file_types": ["py"],
             "file_names": ["requirements.txt", "pyproject.toml", "setup.py"]
         },
         {
@@ -13,7 +13,7 @@
         },
         {
             "project_type": "typescript",
-            "file_types": ["ts", "json"],
+            "file_types": ["ts"],
             "file_names": ["package.json", "tsconfig.json"]
         },
         {

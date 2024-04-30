@@ -33,7 +33,7 @@ pub fn read_config_from_str(config_str: &str) -> Result<Config, std::io::Error> 
 }
 
 pub fn read_config() -> Result<Config, std::io::Error> {
-    let config_key = env::var("CONFIG_DATA").map_err(|err| {
+    let _config_key = env::var("CONFIG_DATA").map_err(|err| {
         std::io::Error::new(
             std::io::ErrorKind::Other,
             format!("CONFIG_DATA environment variable not found: {}", err),
