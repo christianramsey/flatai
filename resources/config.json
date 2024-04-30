@@ -8,7 +8,7 @@
         },
         {
             "project_type": "javascript",
-            "file_types": ["js", "json"],
+            "file_types": ["js"],
             "file_names": ["package.json", ".eslintrc.json"]
         },
         {

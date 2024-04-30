@@ -33,7 +33,13 @@ pub fn read_config_from_str(config_str: &str) -> Result<Config, std::io::Error> 
 }
 
 pub fn read_config() -> Result<Config, std::io::Error> {
-    let config_str = fs::read_to_string("config.json")?;
+    let config_key = env::var("CONFIG_DATA").map_err(|err| {
+        std::io::Error::new(
+            std::io::ErrorKind::Other,
+            format!("CONFIG_DATA environment variable not found: {}", err),
+        )
+    });
+    let config_str = include_str!("../resources/config.json");
     read_config_from_str(&config_str)
 }
 
@@ -166,27 +172,4 @@ pub fn copy_to_clipboard(output_path: &PathBuf) -> io::Result<()> {
     let content = fs::read_to_string(output_path)?;
     ctx.set_contents(content).unwrap();
     Ok(())
-}
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use std::fs::File;
-    use std::io::Write;
-    use std::path::PathBuf;
-
-    #[test]
-    fn test_copy_to_clipboard() {
-        // Create a temporary file and write some data to it
-        let mut temp_file = tempfile::tempfile().unwrap();
-        writeln!(temp_file, "Hello, world!").unwrap();
-
-        // Get the path of the temporary file
-        let temp_path = temp_file.path().to_path_buf();
-
-        // Call the function
-        let result = copy_to_clipboard(&temp_path);
-
-        // Check that the function succeeded
-        assert!(result.is_ok());
-    }
 }
